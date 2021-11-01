@@ -1,9 +1,5 @@
 "use strict"
-/*
-Build all of your functions for displaying and gathering information below (GUI).
-*/
 
-// app is the function called to start the entire application
 function app(people){
   let searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   let searchResults;
@@ -25,22 +21,53 @@ function app(people){
       chars
       );
 
-    app(people); // restart app
+      let filteredSearch = people;
+
+      searchOption.split(' ');
+
+      if(searchOption.includes(1)){
+        filteredSearch = searchByEyeColor(filteredSearch);
+      }
+
+      if(searchOption.includes(2)){
+        filteredSearch = searchByGender(filteredSearch);
+      }
+
+      if(searchOption.includes(3)){
+        filteredSearch = searchByDob(filteredSearch);
+      }
+
+      if(searchOption.includes(4)){
+        filteredSearch = searchByHeight(filteredSearch);
+      }
+
+      if(searchOption.includes(5)){
+        filteredSearch = searchByWeight(filteredSearch);
+      }
+
+      if(searchOption.includes(6)){
+        filteredSearch = searchByOccupation(filteredSearch);
+      }
+
+      displayPeople(filteredSearch);
+      return
+    case 'no':
+      app(people);
+      break;
+
+    default:
+      app(people);
       break;
   }
   
-  // Call the mainMenu function ONLY after you find the SINGLE person you are looking for
   mainMenu(searchResults, people);
 }
 
-// Menu function to call once you find who you are looking for
 function mainMenu(person, people){
-
-  /* Here we pass in the entire person object that we found in our search, as well as the entire original dataset of people. We need people in order to find descendants and other information that the user may want. */
 
   if(!person){
     alert("Could not find that individual.");
-    return app(people); // restart
+    return app(people);
   }
 
   let displayOption = prompt("Found " + person.firstName + " " + person.lastName + " . Do you want to know their 'info', 'family', or 'descendants'? Type the option you want or 'restart' or 'quit'");
