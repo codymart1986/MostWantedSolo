@@ -74,22 +74,23 @@ function mainMenu(person, people){
 
   switch(displayOption){
     case "info":
-    // TODO: get person's info
-    break;
+      displayPerson(person);
+      break;
     case "family":
     // TODO: get person's family
-    break;
+      break;
     case "descendants":
     // TODO: get person's descendants
-    break;
+      break;
     case "restart":
-    app(people); // restart
-    break;
+    app(people);
+      break;
     case "quit":
-    return; // stop execution
+      return;
     default:
-    return mainMenu(person, people); // ask again
+    return mainMenu(person, people);
   }
+  window.location.reload();
 }
 
 function searchByName(people){
@@ -209,7 +210,6 @@ function displayPerson(person){
   alert(personInfo);
 }
 
-// function that prompts and validates user input
 function promptFor(question, valid){
   do{
     var response = prompt(question).trim();
@@ -217,12 +217,10 @@ function promptFor(question, valid){
   return response;
 }
 
-// helper function to pass into promptFor to validate yes/no answers
 function yesNo(input){
   return input.toLowerCase() == "yes" || input.toLowerCase() == "no";
 }
 
-// helper function to pass in as default promptFor validation
 function chars(input){
-  return true; // default validation only
+  return true;
 }
