@@ -61,6 +61,7 @@ function app(people){
   }
   
   mainMenu(searchResults, people);
+  app(people)
 }
 
 function mainMenu(person, people){
@@ -97,8 +98,8 @@ function searchByName(people){
   let firstName = promptFor("What is the person's first name?", chars);
   let lastName = promptFor("What is the person's last name?", chars);
 
-  let foundPerson = people.filter(function(person){
-    if(person.firstName === firstName && person.lastName === lastName){
+  let foundPerson = people.filter(function(potentialMatch){
+    if(potentialMatch.firstName === firstName && potentialMatch.lastName === lastName){
       return true;
     }
     else{
@@ -111,8 +112,8 @@ function searchByName(people){
 function searchByEyeColor(people){
   let eyeColor = promptFor("What color is this person's eyes?", chars);
 
-  let foundPerson = people.filter(function(person){
-    if (person.eyeColor === eyeColor){
+  let foundPerson = people.filter(function(potentialMatch){
+    if (potentialMatch.eyeColor === eyeColor){
       return true;
     }
     else{
@@ -125,8 +126,8 @@ function searchByEyeColor(people){
 function searchByGender(people){
   let gender = promptFor("What is this person's gender? (male or female)", chars);
 
-  let foundPerson = people.filter(function(person){
-    if (person.gender === gender){
+  let foundPerson = people.filter(function(potentialMatch){
+    if (potentialMatch.gender === gender){
       return true;
     }
     else{
@@ -139,8 +140,8 @@ function searchByGender(people){
 function searchByDob(people){
   let dob = promptFor("What is this person's date of birth? (mm/dd/yyyy", chars);
 
-  let foundPerson = people.filter(function(person){
-    if (person.dob === dob){
+  let foundPerson = people.filter(function(potentialMatch){
+    if (potentialMatch.dob === dob){
       return true;
     }
     else{
@@ -153,8 +154,8 @@ function searchByDob(people){
 function searchByHeight(people){
   let height = promptFor("What is this person's height in inches?", chars);
 
-  let foundPerson = people.filter(function(person){
-    if (person.height === height){
+  let foundPerson = people.filter(function(potentialMatch){
+    if (potentialMatch.height === height){
       return true;
     }
     else{
@@ -167,8 +168,8 @@ function searchByHeight(people){
 function searchByWeight(people){
   let weight = promptFor("What is this person's weight in lb's?", chars);
 
-  let foundPerson = people.filter(function(person){
-    if (person.weight === weight){
+  let foundPerson = people.filter(function(potentialMatch){
+    if (potentialMatch.weight === weight){
       return true;
     }
     else{
@@ -181,8 +182,8 @@ function searchByWeight(people){
 function searchByOccupation(people){
   let occupation = promptFor("What is this person's occupation?", chars);
 
-  let foundPerson = people.filter(function(person){
-    if (person.occupation === occupation){
+  let foundPerson = people.filter(function(potentialMatch){
+    if (potentialMatch.occupation === occupation){
       return true;
     }
     else{
