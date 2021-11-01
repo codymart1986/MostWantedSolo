@@ -12,9 +12,19 @@ function app(people){
       searchResults = searchByName(people);
       break;
     case 'no':
-      // TODO: search by traits
-      break;
-      default:
+      promptFor("Would you like to search by a trait? Enter 'yes' or 'no' ", yesNo).toLocaleLowerCase();
+    case 'yes':
+      let searchOption = promptFor(
+        "What traits would you like to search by? (input numbers)\n" +
+        "1. Eye Color \n" +
+        "2. Gender \n" +
+        "3. DOB \n" +
+        "4. Height \n" +
+        "5. Weight \n" +
+        "6. Occupation \n",
+      chars
+      );
+
     app(people); // restart app
       break;
   }
