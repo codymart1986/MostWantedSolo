@@ -104,11 +104,93 @@ function searchByName(people){
       return false;
     }
   })
-  // TODO: find the person using the name they entered
+  return foundPerson[0];
+}
+
+function searchByEyeColor(people){
+  let eyeColor = promptFor("What color is this person's eyes?", chars);
+
+  let foundPerson = people.filter(function(person){
+    if (person.eyeColor === eyeColor){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
   return foundPerson;
 }
 
-// alerts a list of people
+function searchByGender(people){
+  let gender = promptFor("What is this person's gender? (male or female)", chars);
+
+  let foundPerson = people.filter(function(person){
+    if (person.gender === gender){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPerson;
+}
+
+function searchByDob(people){
+  let dob = promptFor("What is this person's date of birth? (mm/dd/yyyy", chars);
+
+  let foundPerson = people.filter(function(person){
+    if (person.dob === dob){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPerson;
+}
+
+function searchByHeight(people){
+  let height = promptFor("What is this person's height in inches?", chars);
+
+  let foundPerson = people.filter(function(person){
+    if (person.height === height){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPerson;
+}
+
+function searchByWeight(people){
+  let weight = promptFor("What is this person's weight in lb's?", chars);
+
+  let foundPerson = people.filter(function(person){
+    if (person.weight === weight){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPerson;
+}
+
+function searchByOccupation(people){
+  let occupation = promptFor("What is this person's occupation?", chars);
+
+  let foundPerson = people.filter(function(person){
+    if (person.occupation === occupation){
+      return true;
+    }
+    else{
+      return false;
+    }
+  })
+  return foundPerson;
+}
+
 function displayPeople(people){
   alert(people.map(function(person){
     return person.firstName + " " + person.lastName;
@@ -116,11 +198,14 @@ function displayPeople(people){
 }
 
 function displayPerson(person){
-  // print all of the information about a person:
-  // height, weight, age, name, occupation, eye color.
   let personInfo = "First Name: " + person.firstName + "\n";
   personInfo += "Last Name: " + person.lastName + "\n";
-  // TODO: finish getting the rest of the information to display
+  personInfo += "Eye Color: " + person.eyeColor + "\n";
+  personInfo += "Gender: " + person.gender + "\n";
+  personInfo += "DOB: " + person.dob + "\n";
+  personInfo += "Height: " + person.height + "\n";
+  personInfo += "Weight: " + person.weight + "\n";
+  personInfo += "Occupation: " + person.occupation + "\n";
   alert(personInfo);
 }
 
