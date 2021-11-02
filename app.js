@@ -225,3 +225,39 @@ function yesNo(input){
 function chars(input){
   return true;
 }
+
+function findFamily(person, people){
+  let foundParents = [];
+
+  let foundPerson = people.filter(function(potentialMatch){
+    if (potentialMatch.id === person.parents[0]){
+      foundParents.push(potentialMatch);
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  let foundPerson2 = people.filter(function(potentialMatch){
+    if (potentialMatch.id === person.parents[1]){
+      foundParents.push(potentialMatch);
+      return true;
+    } else {
+      return false;
+    }
+  })
+
+  let foundSiblings = [];
+  let foundPersonSiblings = people.filter(function(potentialMatch){
+    if(person.parents > 0 && potentialMatch.parents > 0){
+      if(person.id !=potentialMatch.id) {
+        if(potentialMatch.parents[0] === person.parents[0] || potentialMatch.parents[0] === person.parents[1] || potentialMatch.parents[1] === person.parents[1]){
+          foundSiblings.push(potentialMatch);
+          return true;
+        } else {
+          return false;
+        }
+      }
+    }
+  })
+}
