@@ -261,15 +261,14 @@ function findFamily(person, people){
     }
   })
 
-    let foundPSpouse;
-
-    let foundSpouse = people.filter(function(potentialMatch){
-      if(potentialMatch.id == person.currentSpouse){
-        foundPSpouse = potentialMatch;
-        return true;
-      }   else {
-        return false;
-      }
+  let foundPSpouse;
+  let foundSpouse = people.filter(function(potentialMatch){
+    if(potentialMatch.id == person.currentSpouse){
+      foundPSpouse.push(potentialMatch);
+      return true;
+    }else {
+     return false;
+    }
   })
 
   displayFamily(foundPSpouse, foundParents, foundSiblings);
